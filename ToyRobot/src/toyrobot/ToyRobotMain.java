@@ -39,26 +39,28 @@ public class ToyRobotMain {
                     Integer.parseInt(inputRobot[1]), 
                     Direction.valueOf(inputRobot[2]));
             String actionWord = scanner.nextLine();
-            
-            while (!actionWord.equals("REPORT")) {
-                switch (actionWord) {
-                    case "MOVE":
-                        robotController.move();
-                        break;
-                    case "LEFT":
-                        robotController.left();
-                        break;
-                    case "RIGHT":
-                        robotController.right();
-                        break;
-                    default:
-                        System.out.println("Invalid Input");
-                        break;
-                }
-                actionWord = scanner.nextLine();
-            }
+            checkInputWord(actionWord);            
             System.out.println(robotController.report());
         }
     }
     
+    public static void checkInputWord(String actionWord) {
+        while (!actionWord.equals("REPORT")) {
+            switch (actionWord) {
+                case "MOVE":
+                    robotController.move();
+                    break;
+                case "LEFT":
+                    robotController.left();
+                    break;
+                case "RIGHT":
+                    robotController.right();
+                    break;
+                default:
+                    System.out.println("Invalid Input");
+                    break;
+            }
+            actionWord = scanner.nextLine();
+        }
+    }
 }
