@@ -24,11 +24,17 @@ public class ToyRobotMain {
     }
     
     public static void standardInput(){
+        //Save "PLACE" word
         String placeWord    = scanner.next();
+        
+        //Save robot initialize position
         String inputRobot[] = scanner.next().split(",");
-        
         scanner.nextLine();
-        
+        checkInitWord(placeWord, inputRobot);
+    }
+    
+    //Check validation of "PLACE" word and initialize robot's position
+    public static void checkInitWord(String placeWord, String[] inputRobot) {
         if (!placeWord.equals("PLACE") 
                 || !robotController.getTableController()
                         .validPosition(Integer.parseInt(inputRobot[0]), 
